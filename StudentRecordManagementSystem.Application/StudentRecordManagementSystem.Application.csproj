@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StudentRecordManagementSystem.Application.Common\StudentRecordManagementSystem.Application.Common.csproj" />
+    <ProjectReference Include="..\StudentRecordManagementSystem.Domain\StudentRecordManagementSystem.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
