@@ -12,11 +12,13 @@ var configurations = builder.Configuration;
 
 // register all Commands, Queries and Domain event handlers
 builder.Services.AddMediatR(typeof(StudentRecordManagementSystem.Application.Queries.StudentList.GetStudentListQueryHandler).GetTypeInfo().Assembly);
+builder.Services.AddMediatR(typeof(StudentRecordManagementSystem.Application.Commands.AddStudent.AddStudentCommandHandler).GetTypeInfo().Assembly);
 
-builder.Services.AddDbContext<ReadOnlyDbContext>(options =>
-            options.UseSqlServer(configurations.GetConnectionString("SqlServer")), ServiceLifetime.Scoped);
+builder.Services.AddDbContext<ReadOnlyDbContext>(options => options.UseSqlServer(configurations.GetConnectionString("SqlServer")));
+builder.Services.AddDbContext<WriteDbContext>(options => options.UseSqlServer(configurations.GetConnectionString("SqlServer")));
 
 builder.Services.AddScoped<IStudentReadRepository, StudentReadRepository>();
+builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

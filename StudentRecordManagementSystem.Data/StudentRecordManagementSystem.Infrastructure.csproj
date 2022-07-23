@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StudentRecordManagementSystem.Application\StudentRecordManagementSystem.Application.csproj" />
+    <ProjectReference Include="..\StudentRecordManagementSystem.Domain\StudentRecordManagementSystem.Domain.csproj" />
   </ItemGroup>
 
 </Project>

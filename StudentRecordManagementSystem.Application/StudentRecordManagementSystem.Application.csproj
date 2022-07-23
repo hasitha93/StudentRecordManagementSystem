@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
+    <ProjectReference Include="..\StudentRecordManagementSystem.Application.Common\StudentRecordManagementSystem.Application.Common.csproj" />
+    <ProjectReference Include="..\StudentRecordManagementSystem.Domain\StudentRecordManagementSystem.Domain.csproj" />
   </ItemGroup>
 
 </Project>

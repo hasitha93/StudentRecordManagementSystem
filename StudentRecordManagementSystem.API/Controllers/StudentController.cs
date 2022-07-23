@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudentRecordManagementSystem.Application.Commands.AddStudent;
 using StudentRecordManagementSystem.Application.Queries.StudentList;
 
 namespace StudentRecordManagementSystem.API.Controllers
@@ -17,11 +17,17 @@ namespace StudentRecordManagementSystem.API.Controllers
         }
 
         [HttpGet("list")]
-        public async Task<IActionResult> GetOrganizationPropertyManagers()
+        public async Task<IActionResult> GetStudentList()
         {
             var result = await _mediator.Send(new GetStudentListQuery());
             return Ok(result);
         }
 
+        [HttpPost()]
+        public async Task<IActionResult> CreateStudent([FromBody] AddStudentCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
     }
 }
