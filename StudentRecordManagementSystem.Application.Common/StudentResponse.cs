@@ -1,4 +1,4 @@
-﻿namespace StudentRecordManagementSystem.Application.Queries.StudentList
+﻿namespace StudentRecordManagementSystem.Application.Common
 {
     public sealed class StudentResponse
     {

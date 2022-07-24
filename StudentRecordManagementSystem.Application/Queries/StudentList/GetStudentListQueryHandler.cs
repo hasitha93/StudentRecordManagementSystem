@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using StudentRecordManagementSystem.Application.Common;
 using StudentRecordManagementSystem.Application.Extensions;
 using StudentRecordManagementSystem.Application.Interfaces.Repositories;
 
@@ -15,7 +16,7 @@ namespace StudentRecordManagementSystem.Application.Queries.StudentList
 
         public async Task<List<StudentResponse>> Handle(GetStudentListQuery request, CancellationToken cancellationToken)
         {
-            var students = await _studentRepo.GetStudentListAsync();
+            var students = await _studentRepo.GetStudentListAsync(cancellationToken);
             return students.Select(x => x.ToStudentResponse()).ToList();
         }
     }

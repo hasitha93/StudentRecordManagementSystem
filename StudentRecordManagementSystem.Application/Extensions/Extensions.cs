@@ -1,5 +1,5 @@
-﻿using StudentRecordManagementSystem.Application.Models;
-using StudentRecordManagementSystem.Application.Queries.StudentList;
+﻿using StudentRecordManagementSystem.Application.Common;
+using StudentRecordManagementSystem.Application.Models;
 
 namespace StudentRecordManagementSystem.Application.Extensions
 {
