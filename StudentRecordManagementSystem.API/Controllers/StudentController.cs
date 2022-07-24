@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using StudentRecordManagementSystem.Application.Commands.AddStudent;
+using StudentRecordManagementSystem.Application.Queries.StudentDetails;
 using StudentRecordManagementSystem.Application.Queries.StudentList;
 
 namespace StudentRecordManagementSystem.API.Controllers
@@ -14,6 +15,13 @@ namespace StudentRecordManagementSystem.API.Controllers
         public StudentController(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetStudent(int id)
+        {
+            var result = await _mediator.Send(new GetStudentQuery(id));
+            return Ok(result);
         }
 
         [HttpGet("list")]

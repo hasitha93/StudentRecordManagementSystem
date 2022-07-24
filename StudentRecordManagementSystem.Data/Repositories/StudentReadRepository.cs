@@ -14,10 +14,10 @@ namespace StudentRecordManagementSystem.Infrastructure.Repositories
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public async Task<StudentModel> GetStudentByIdAsync(int id) => 
-            await _dbContext.Set<StudentModel>().SingleOrDefaultAsync(s => s.Id == id);
+        public async Task<StudentModel> GetStudentByIdAsync(int id, CancellationToken cancellationToken = default) => 
+            await _dbContext.Set<StudentModel>().SingleOrDefaultAsync(s => s.Id == id, cancellationToken);
 
-        public async Task<List<StudentModel>> GetStudentListAsync() => 
-            await _dbContext.Set<StudentModel>().ToListAsync();
+        public async Task<List<StudentModel>> GetStudentListAsync(CancellationToken cancellationToken = default) => 
+            await _dbContext.Set<StudentModel>().ToListAsync(cancellationToken);
     }
 }
